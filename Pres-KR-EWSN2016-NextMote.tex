@@ -55,8 +55,34 @@
 \section{Introduction}
 
 \begin{frame}
-\frametitle{Title}
-Une diapositive \LaTeX.
+\frametitle{Introduction (1/2)}
+\begin{block}{To develop and test large, ambitious WSN-based projects}
+$\rightarrow$ need of powerful and accurate simulation/emulation tools
+\end{block}
+\begin{block}{Many such simulation/emulation tools exist}
+\begin{itemize}
+\item OpenSim (from OpenWSN project)
+\item TOSSIM (from TinyOS project)
+\item Cooja (from Contiki OS project)
+\end{itemize}
+\end{block}
+\begin{exampleblock}{This work focus on the latter framework: \textbf{Cooja}}
+$\rightarrow$ (one of) the most used simulation/emulation tool
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Introduction (2/2)}
+\begin{block}{The present work focus on the two following subjects}
+\begin{enumerate}
+\item The ability---\emph{actually tested and used}---to use the Cooja
+framework to simulate/emulate systems not related to Contiki OS
+\item The inaccuracies in time-related results we discovered while using
+Cooja\footnote{Note we always used the Cooja version provided with
+Contiki release 2.7} to perform our own simulations to test our own
+WSN-related projects
+\end{enumerate}
+\end{block}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,13 +145,12 @@ Une diapositive \LaTeX.
 \begin{columns}[c]
 \begin{column}{8.25cm}
 \begin{block}{Funding}
-This work has been funded by the French national PIA\footnotemark[1]
+This work has been funded by the French national PIA\footnote{\textsl{PIA~:
+\guillemotleft~Programme d'investissement d'avenir~\guillemotright}}
 \textbf{LAR} (\textit{``Living Assistant Robot''}).
 \end{block}
 \end{column}
 \end{columns}
-\footnotetext[1]{\textsl{PIA~: \guillemotleft~Programme d'investissement
-                               d'avenir~\guillemotright}}
 \end{frame}
 
 \subsection{References}
