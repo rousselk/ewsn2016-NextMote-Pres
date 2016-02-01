@@ -26,6 +26,9 @@
 
 %%% COMMANDES UTILES AU COURS DU CORPS DE TEXTE
 
+\renewcommand{\emph}[1]{\textbf{\textit{#1}}}
+\newcommand{\nom}[1]{\textbf{#1}}
+
 \setbeamertemplate{itemize item}[triangle]
 \setbeamertemplate{itemize subitem}[square]
 \setbeamertemplate{itemize subsubitem}[circle]
@@ -66,7 +69,7 @@ $\rightarrow$ need of powerful and accurate simulation/emulation tools
 \item Cooja (from Contiki OS project)
 \end{itemize}
 \end{block}
-\begin{exampleblock}{This work focus on the latter framework: \textbf{Cooja}}
+\begin{exampleblock}{This work focus on the latter framework: \nom{Cooja}}
 $\rightarrow$ (one of) the most used simulation/emulation tool
 \end{exampleblock}
 \end{frame}
@@ -90,8 +93,32 @@ WSN-related projects
 \section{Cooja and MSPSim}
 
 \begin{frame}
-\frametitle{Title}
-Une diapositive \LaTeX.
+\frametitle{The Cooja framework and its emulators (1/2)}
+\begin{block}{The Cooja application}
+It's a Java-based application, providing three main features:
+\begin{enumerate}
+\item a graphical user interface (GUI) fo the simulation work
+\item simulation of the radio medium underlying WSN communications
+\item an extensible framework, allowing integration of additional
+Java-based tools to the application
+\end{enumerate}
+$\rightarrow$ this latest feature allow Cooja to embed emulators,
+and thus to actually \emph{emulate} WSN motes
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Cooja framework and its emulators (2/2)}
+\begin{exampleblock}{The embedded emulators}
+These are currently two:
+\begin{enumerate}
+\item \nom{Avrora}, for emulation of Atmel AVR-based devices
+\item \nom{MSPSim}, for emulation of TI MSP430-based devices
+\end{enumerate}
+$\rightarrow$ \nom{MSPSim} is currently the most used, since
+MSP430-based motes are more commonly used. \emph{The present work
+focuses on Cooja and the MSPSim emulator only.}
+\end{exampleblock}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
