@@ -99,6 +99,7 @@ It's a Java-based application, providing three main features:
 \begin{enumerate}
 \item a graphical user interface (GUI) fo the simulation work
 \item simulation of the radio medium underlying WSN communications
+(IEEE 802.15.4 standard)
 \item an extensible framework, allowing integration of additional
 Java-based tools to the application
 \end{enumerate}
@@ -235,8 +236,36 @@ on a public GitHub repository:
 \section{Consequences}
 
 \begin{frame}
-\frametitle{Title}
-Une diapositive \LaTeX.
+\vspace{-0.25cm}
+\frametitle{Consequences on WSN Literature}
+\begin{block}{What did we find?}
+\begin{itemize}
+\item many recent publications rely on Cooja/MSPSim to perform, directly
+or indirectly, time-related performance evaluations of their WSN-based
+projects (fortunately, most of them use the less impacted Sky/TelosB
+hardware platform
+\cite{Constrain-Routing-Trees-2014} \cite{Co-RPL-2014} \cite{DINAS-2014}
+\cite{Efficient-Distrib-Svc-Discovery-2014} \cite{IETF-Routing-WSN-2014}
+\cite{TinySDN-2014} \cite{Trickle-L2-2014}
+\cite{Visual-Sensor-Networks-2014})
+\item most of these papers are focused on higher layers of WSN network
+stacks, like routing protocols 
+\cite{Constrain-Routing-Trees-2014} \cite{Co-RPL-2014}
+\cite{IETF-Routing-WSN-2014} \cite{Trickle-L2-2014}
+or application-level projects
+\cite{DINAS-2014} \cite{Efficient-Distrib-Svc-Discovery-2014}
+\cite{Visual-Sensor-Networks-2014} \cite{Key-Mgmt-2015} \\
+$\rightarrow$ \emph{their authors may probably be unaware of this problem,}
+since they are not focused on low-level details
+\end{itemize}
+\end{block}
+\vspace{-0.25cm}
+\begin{alertblock}{What does that mean?}
+Many WSN studies rely (at least partially) on Cooja/MSPSim to evaluate
+the time-related performances \\
+$\rightarrow$ \emph{This inaccuracy problem could hinder their results,
+and thus their conclusions!}
+\end{alertblock}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -275,7 +304,8 @@ This work has been funded by the French national PIA\footnote{\textsl{PIA~:
 
 \begin{frame}
 \frametitle{References}
-Une diapositive \LaTeX.
+\bibliographystyle{unsrt}
+\bibliography{TimingInacc}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
