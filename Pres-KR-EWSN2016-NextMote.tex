@@ -156,8 +156,78 @@ extension is enough
 \section{Timing Inaccuracy Problem in MSPSim}
 
 \begin{frame}
-\frametitle{Title}
-Une diapositive \LaTeX.
+\frametitle{Timing Inaccuracy Problem in MSPSim: the Setup}
+\begin{alertblock}{What did we discover during our experiments?}
+\begin{itemize}
+\item unexplained delays during simulations/emulations of packet
+transmissions (TX), not observed on real hardware
+\item the differences appear on one peculiar operation: \emph{when loading
+the TX buffer of the CC2420 radio transceiver} {\small(used by both our
+hardware platforms: Sky/TelosB and Zolertia Z1 motes)}
+\end{itemize}
+\end{alertblock}
+\begin{block}{What did we do to investigate that problem?}
+\begin{itemize}
+\item we wrote a simple test program, which only send data packets of
+various sizes (resp. 30, 60 and 110 bytes of MAC payload)
+\item we tried this program on various configurations:
+  \begin{itemize}
+  \item two different hardware platforms: Sky/TelosB and Zolertia Z1 motes
+  \item two different WSN OS: Contiki and RIOT OS
+  \item on RIOT OS: two different way to handle SPI data transfers
+        (so-called ``safe mode'' and ``fast mode'')
+  \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Timing Inaccuracy Problem in MSPSim: the Results}
+\begin{block}{What did our tests show?}
+\begin{itemize}
+\item the inaccuracy problem is mainly influenced by the emulated hardware
+platform
+  \begin{itemize}
+  \item \emph{on Zolertia Z1 motes, timing inaccuracies are catastrophic:
+  delays are overestimated by amounts from 95\% to 185\%}
+  \item on Sky/TelosB motes, timing inaccuracies are much less important:
+  delays are under- or overestimated by amounts up to 18\%
+  \end{itemize}
+\item the used OS has much less influence on the problem: results tend
+to be a little bit more accurate on Contiki than on RIOT OS
+\item the SPI method only has a significative influence on Sky/TelosB
+hardware, where the inaccuracies almost disappear when using the ``fast
+mode'' under RIOT OS
+\item \emph{This TX buffer loading operation amounts to about half
+of the total packet transmission time under RIOT OS} (much less on
+Contiki, where it represents 10\% to 13\%)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Timing Inaccuracy Problem in MSPSim: Conclusions}
+\vspace{-0.25cm}
+\begin{alertblock}{What can we deduce from these results?}
+\begin{itemize}
+\item \emph{Cooja/MSPSim simulation/emulations do not provide accurate
+results for timing evaluation purposes}, especially on Zolertia Z1 motes
+\item since the hardware seems to be the main factor influencing this
+problem, we suppose its cause is (at least partially) linked to wrong
+timing calibrations for microcontrollers' emulation
+\item consequently, \emph{we think that all works based on Cooja/MSPSim
+simulations to evaluate WSN projects---especially for timing
+matters---should be checked (even partially) by tests on actual hardware}
+\end{itemize}
+\end{alertblock}
+\vspace{-0.25cm}
+\begin{exampleblock}{How to test the accuracy of your own works?}
+\small
+We provided the source of our test programs (for Contiki and RIOT OS)
+on a public GitHub repository:
+\vspace{-0.25cm}
+\center{\texttt{https://github.com/rousselk/tim-inacc-tst-prg}}
+\end{exampleblock}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
