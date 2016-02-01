@@ -207,7 +207,7 @@ Contiki, where it represents 10\% to 13\%)
 \end{frame}
 
 \begin{frame}
-\frametitle{Timing Inaccuracy Problem in MSPSim: Conclusions}
+\frametitle{Timing Inaccuracy Problem in MSPSim: Assumptions}
 \vspace{-0.25cm}
 \begin{alertblock}{What can we deduce from these results?}
 \begin{itemize}
@@ -270,11 +270,48 @@ and thus their conclusions!}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Conclusion}
+\section{Conclusions}
 
 \begin{frame}
-\frametitle{Title}
-Une diapositive \LaTeX.
+\frametitle{Conclusions (1/2)}
+\vspace{-0.25cm}
+\begin{block}{Our contributions}
+\begin{itemize}
+\item we proved that the Cooja framework is not limited to simulations
+of systems running Contiki OS, but can run any program designed for the
+emulated architectures (especially MSP430, thanks to MSPSim)
+\item we showed that the MSPSim emulation---at least for the version
+provided with Contiki release 2.7---suffers from a serious timing inaccuracy
+issue; we described the extent of the problem, and provided serious clues
+about its cause(s)
+\item we briefly enumerated a (limited) list of recent publications,
+showing the magnitude of the negative impact this problem can cause
+\end{itemize}
+\end{block}
+\vspace{-0.25cm}
+\begin{alertblock}{Our assumption}
+Until a fix is made and published to correct this issue in MSPSim,
+we believe that tests on actual hardware are the only way to get
+reliable results for performance evaluation.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusions (2/2)}
+\begin{exampleblock}{In defence of Cooja/MSPSim}
+\begin{itemize}
+\item the many publications in the domain of WSNs, especially very recent
+ones, including Cooja/MSPSim simulations, is a testimony of the usefulness
+of such an emulation framework (especially to test large WSNs, which is
+often difficult and expensive to with actual hardware) \\
+$\rightarrow$ \emph{That's why we strongly believe fixing Cooja/MSPSim
+is really important, and hope for such a fix to appear soon}
+\item while the issue described can impair the use of Cooja/MSPSim as
+a performance evaluation tool, \emph{it does not affect its other useful
+applications, like the ability to develop and debug WSN-related software
+much more easily thanks to its emulation features}
+\end{itemize}
+\end{exampleblock}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
