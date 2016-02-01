@@ -29,8 +29,8 @@
 \renewcommand{\emph}[1]{\textbf{\textit{#1}}}
 \newcommand{\nom}[1]{\textbf{#1}}
 
-\setbeamertemplate{itemize item}[triangle]
-\setbeamertemplate{itemize subitem}[square]
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[triangle]
 \setbeamertemplate{itemize subsubitem}[circle]
 
 
@@ -126,8 +126,29 @@ focuses on Cooja and the MSPSim emulator only.}
 \section{Using Cooja and MSPSim: Not Only for Contiki!}
 
 \begin{frame}
-\frametitle{Title}
-Une diapositive \LaTeX.
+\frametitle{Using Cooja and MSPSim with any WSN system\ldots \\
+            (or even without)}
+\begin{block}{What do Cooja's embedded emulators run?}
+\small
+The Contiki build system produces standard (ELF format) executables \\
+$\rightarrow$ the Cooja embedded emulators are designed to run such
+standard executables
+\end{block}
+\begin{exampleblock}{What does it mean?}
+\small
+\emph{Any system producing such standard ELF executables (besides Contiki
+OS itself) will run on virtual motes emulated with the Cooja framework}
+
+We tested this with MSPSim, using:
+\begin{itemize}
+\item applications based on RIOT OS
+\item ``bare-metal'' applications
+\end{itemize}
+
+Any other OS using \texttt{msp430-gcc} as its compiler (e.g.: TinyOS)
+should run fine on Cooja/MSPSim: a simple trick on executables' file
+extension is enough
+\end{exampleblock}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
