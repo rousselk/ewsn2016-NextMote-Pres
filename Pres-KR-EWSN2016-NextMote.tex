@@ -66,7 +66,7 @@
 \begin{block}{To develop and test large, ambitious WSN-based projects}
 $\rightarrow$ need of powerful and accurate simulation/emulation tools
 \end{block}
-\begin{block}{Many such simulation/emulation tools exist}
+\begin{block}{Many such simulation/emulation tools for WSNs exist:}
 \begin{itemize}
 \item OpenSim (from OpenWSN project)
 \item TOSSIM (from TinyOS project)
@@ -74,13 +74,13 @@ $\rightarrow$ need of powerful and accurate simulation/emulation tools
 \end{itemize}
 \end{block}
 \begin{exampleblock}{This work focus on the latter framework: \nom{Cooja}}
-$\rightarrow$ (one of) the most used simulation/emulation tool
+$\rightarrow$ (one of) the most used WSN simulation/emulation tool
 \end{exampleblock}
 \end{frame}
 
 \begin{frame}
 \frametitle{Introduction II}
-\begin{block}{The present work focus on the two following subjects}
+\begin{block}{The present work focuses on the following contributions:}
 \begin{enumerate}
 \item The ability---\emph{actually tested and used}---to use the Cooja
 framework to simulate/emulate systems not related to Contiki OS
@@ -88,6 +88,8 @@ framework to simulate/emulate systems not related to Contiki OS
 Cooja\footnote{Note we always used the Cooja version provided with
 Contiki release 2.7} to perform our own simulations to test our own
 WSN-related projects
+\item the possible consequences of these inaccuracies in the literature
+published in the WSN domain
 \end{enumerate}
 \end{block}
 \end{frame}
@@ -107,7 +109,7 @@ It's a Java-based application, providing three main features:
 \item an extensible framework, allowing integration of additional
 Java-based tools to the application
 \end{enumerate}
-$\rightarrow$ this latest feature allows Cooja to embed emulators,
+$\rightarrow$ this latter feature allows Cooja to embed emulators,
 and thus to actually \emph{emulate} WSN motes
 \end{block}
 \end{frame}
@@ -175,7 +177,7 @@ the TX buffer of the CC2420 radio transceiver}
 \end{alertblock}
 \begin{block}{What did we do to investigate that problem?}
 \begin{itemize}
-\item we wrote a simple test program, which only send data packets of
+\item we wrote a simple test program, which only sends data packets of
 various sizes (resp. 30, 60 and 110 bytes of MAC payload)
 %to which a MAC layer-related overhead of 11 bytes is always added
 \item we tried this program on various configurations:
@@ -192,8 +194,8 @@ various sizes (resp. 30, 60 and 110 bytes of MAC payload)
 \begin{frame}
 \frametitle{Timing Inaccuracy Problem in MSPSim: Results I}
 \begin{center}
-\tblcaption{Observed delay inaccuracies of MSPSim emulation \\
-            versus tests on actual hardware}
+\tblcaption{Observed TX buffer loading delay inaccuracies of MSPSim
+            emulation \\ versus tests on actual hardware}
 
 \begin{tabular}{|l|l|r|r|}
 \hline
@@ -234,6 +236,8 @@ platform
   \end{itemize}
 \item the used OS has much less influence on the problem: results tend
 to be more accurate on Contiki than on RIOT OS
+\item the size of transmitted packets doesn't seem to have any
+significative influence on this problem
 \end{itemize}
 \end{block}
 \end{frame}
@@ -283,10 +287,10 @@ half of the total packet transmission delay under RIOT OS
 \end{block}
 \end{frame}
 
-\subsection{Our Assumptions}
+\subsection{Discussion}
 
 \begin{frame}
-\frametitle{Timing Inaccuracy Problem in MSPSim: Assumptions}
+\frametitle{Timing Inaccuracy Problem in MSPSim: Discussion}
 \begin{alertblock}{What can we deduce from these results?}
 \begin{itemize}
 \item \emph{Cooja/MSPSim simulations/emulations do not provide accurate
@@ -336,8 +340,8 @@ since they are not focused on low-level details
 \begin{alertblock}{What does that mean?}
 Many WSN studies rely (at least partially) on Cooja/MSPSim to evaluate
 their time-related performances \\
-$\rightarrow$ \emph{This inaccuracy problem could hinder their results,
-and thus their conclusions!}
+$\rightarrow$ \emph{This inaccuracy problem could make their results
+unreliable, and thus put their conclusions in jeopardy!}
 \end{alertblock}
 \end{frame}
 
@@ -349,7 +353,7 @@ and thus their conclusions!}
 \frametitle{Conclusions I}
 \begin{block}{Our contributions}
 \begin{enumerate}
-\item we proved that the Cooja framework is not limited to simulations
+\item we showed that the Cooja framework is not limited to simulations
 of systems running Contiki OS, but can run any program designed for the
 emulated architectures (especially MSP430, thanks to MSPSim)
 \item we showed that the MSPSim emulation---at least for the version
@@ -364,7 +368,7 @@ showing the magnitude of the negative impact this problem can cause
 
 \begin{frame}
 \frametitle{Conclusions II}
-\begin{alertblock}{Our assumption}
+\begin{alertblock}{In summary:}
 Until a fix is made and published to correct this issue in MSPSim,
 \emph{we think that all works based on Cooja/MSPSim simulations to evaluate
 WSN projects---especially for timing matters---should be checked (even
@@ -379,7 +383,7 @@ on a public GitHub repository:
 
 \begin{frame}
 \frametitle{Conclusions III}
-\begin{exampleblock}{In defence of Cooja/MSPSim}
+\begin{exampleblock}{Strengths of Cooja/MSPSim}
 \begin{itemize}
 \item the many publications in the domain of WSNs, especially very recent
 ones, including Cooja/MSPSim simulations, is a testimony of the usefulness
@@ -388,9 +392,9 @@ often difficult and expensive to with actual hardware) \\
 $\rightarrow$ \emph{That's why we strongly believe fixing Cooja/MSPSim
 is really important, and hope for such a fix to appear soon}
 \item while the issue described can impair the use of Cooja/MSPSim as
-a performance evaluation tool, \emph{it does not affect its other useful
-applications, like the ability to develop and debug WSN-related software
-much more easily thanks to its emulation features}
+a performance evaluation tool, \emph{it does not affect its other
+valuable uses, like the ability to develop and debug WSN-related
+software much more easily thanks to its emulation features}
 \end{itemize}
 \end{exampleblock}
 \end{frame}
@@ -403,38 +407,32 @@ much more easily thanks to its emulation features}
 
 \section{Appendix}
 
-\begin{frame}[allowframebreaks,t]
-\frametitle{Appendix}
+\begin{frame}[b]
+\frametitle{Thanks for Your Attention}
+\begin{block}{}
+\center{\textbf{\Large Any questions?}}
+\end{block}
+\vspace{1.25cm}
 \begin{columns}[c]
-\begin{column}{8.25cm}
-\begin{block}{Acknowledgements (Funding)}
-This work has been funded by the French national PIA\footnote{\textsl{PIA~:
-\guillemotleft~Programme d'investissement d'avenir~\guillemotright}}
+\begin{column}{8cm}
+\begin{block}{\small Acknowledgements (Funding)}
+\small
+This work has been funded by the French national PIA
+\footnote{\scriptsize\textsl{PIA~: \guillemotleft~Programme
+d'investissement d'avenir~\guillemotright}}
 \textbf{LAR} (\textit{``Living Assistant Robot''}).
 \end{block}
 \end{column}
 \end{columns}
-
-\vspace{0.75cm}
-
-\textbf{References}
 \vspace{0.25cm}
+\end{frame}
+
+\begin{frame}[allowframebreaks,t]
+\frametitle{References}
 \tiny
 \bibliographystyle{unsrt}
 \bibliography{TimingInacc}
 \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{}
-
-\begin{frame}
-\frametitle{Thanks for Your Attention!}
-\begin{block}{}
-\center{\textbf{\Large Any questions?}}
-\end{block}
-\end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                               80 COLONNES                                %%%
