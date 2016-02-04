@@ -36,6 +36,15 @@
 \setbeamertemplate{itemize subitem}[triangle]
 \setbeamertemplate{itemize subsubitem}[circle]
 \setbeamertemplate{bibliography item}{\insertbiblabel}
+% Ajout des numéros de transparents à la barre de navigation en bas à droite
+\setbeamercolor{footline}{fg=darkgray}
+\setbeamerfont{footline}{series=\bfseries,size=\scriptsize}
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1.5em}%
+    \insertframenumber~/ 18%\inserttotalframenumber
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -434,10 +443,13 @@ d'investissement d'avenir~\guillemotright}}
 \bibliography{TimingInacc}
 \end{frame}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                               80 COLONNES                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% FIN DE LA PRÉSENTATION
 \end{document}
+
+
 
