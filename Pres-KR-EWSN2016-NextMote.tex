@@ -2,6 +2,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
 \usepackage{multirow}
 
 
@@ -43,7 +44,7 @@
     \usebeamerfont{footline}%
     \usebeamercolor[fg]{footline}%
     \hspace{1.5em}%
-    \insertframenumber~/ 18%\inserttotalframenumber
+    \insertframenumber~/ 17%\inserttotalframenumber
 }
 
 
@@ -108,33 +109,14 @@ published in the WSN domain
 \section{Cooja and MSPSim}
 
 \begin{frame}
-\frametitle{The Cooja framework and its emulators I}
-\begin{block}{The Cooja application}
-It's a Java-based application, providing three main features:
-\begin{enumerate}
-\item a graphical user interface (GUI) for the simulation work
-\item simulation of the radio medium underlying WSN communications
-(IEEE 802.15.4 standard)
-\item an extensible framework, allowing integration of additional
-Java-based tools to the application
-\end{enumerate}
-$\rightarrow$ this latter feature allows Cooja to embed emulators,
-and thus to actually \emph{emulate} WSN motes
-\end{block}
-\end{frame}
+\vspace{-0.5cm}
+\frametitle{The Cooja framework and its emulators}
+\center{\includegraphics[width=10cm]{CoojaFramework.png}}
 
-\begin{frame}
-\frametitle{The Cooja framework and its emulators II}
-\begin{exampleblock}{The embedded emulators}
-These are currently two:
-\begin{enumerate}
-\item \nom{Avrora}, for emulation of Atmel AVR-based devices
-\item \nom{MSPSim}, for emulation of TI MSP430-based devices
-\end{enumerate}
-$\rightarrow$ \nom{MSPSim} is currently the most used, since
-MSP430-based motes are more commonly used. \emph{The present work
-focuses on Cooja and the MSPSim emulator only.}
-\end{exampleblock}
+\vspace{0.25cm}
+\begin{block}{}
+The present work focuses on Cooja and the MSPSim emulator only
+\end{block}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -203,9 +185,18 @@ various sizes (resp. 30, 60 and 110 bytes of MAC payload)
 \begin{frame}
 \frametitle{Timing Inaccuracy Problem in MSPSim: Results I}
 \begin{center}
-\tblcaption{Observed TX buffer loading delay inaccuracies of MSPSim
-            emulation \\ versus tests on actual hardware}
+\vspace{-0.9cm}
+\small
+\[
+\mbox{\textbf{Inaccuracy}}
+   = \frac{\mbox{Simulated delay} - \mbox{Actual Hardware test delay}}
+          {\mbox{Actual Hardware test delay}}
+\]
 
+\vspace{0.1cm}
+
+\tblcaption{\small Observed TX buffer loading delay inaccuracies of MSPSim
+            emulation \\ versus tests on actual hardware}
 \begin{tabular}{|l|l|r|r|}
 \hline
 \textbf{HW platform} & \textbf{OS} & \textbf{Payload size}
@@ -254,9 +245,13 @@ significative influence on this problem
 \begin{frame}
 \frametitle{Timing Inaccuracy Problem in MSPSim: Results II}
 \begin{center}
-\tblcaption{Relative weight of TX buffer loading
-            in packet transmission delays}
+\vspace{-0.4cm}
+\includegraphics[width=8cm]{Delays.png}
+\vspace{0.1cm}
 
+\tblcaption{\small Relative weight of TX buffer loading
+            in packet transmission delays}
+\small
 \begin{tabular}{|l|l|r|r|}
 \hline
 \multirow{2}{2.5cm}{\textbf{HW platform}}
@@ -289,10 +284,14 @@ Zolertia Z1    & RIOT OS & 110 bytes & 46\% \\
 \frametitle{Timing Inaccuracy Problem in MSPSim: Results II}
 \begin{block}{What did our tests show \textit{(bis)}?}
 \emph{The TX buffer loading operation weight in the whole packet
-transmission time is anything but negligible} \\
-$\rightarrow$ This TX buffer loading operation amounts to about
-half of the total packet transmission delay under RIOT OS
-(much less on Contiki, where it represents 10\% to 13\%)
+transmission time is anything but negligible:}
+
+This TX buffer loading operation amounts to about half of the total
+packet transmission delay under RIOT OS (much less on Contiki,
+where it represents 10\% to 13\%) \\
+$\rightarrow$ \textit{This is probably due to the way these OSes do manage
+the SPI bus that links the MCU to the radio transceiver on a mote
+(``fast mode'' for Contiki OS, ``safe mode'' for RIOT OS)}
 \end{block}
 \end{frame}
 
@@ -328,7 +327,7 @@ timing calibrations for microcontrollers' emulation \\
 \item many recent publications rely on Cooja/MSPSim to perform, directly
 or indirectly, time-related performance evaluations of their WSN-based
 projects
-\cite{Constrain-Routing-Trees-2014} \cite{Co-RPL-2014} \cite{DINAS-2014}
+\cite{Constrain-Routing-Trees-2014} \cite{DINAS-2014}
 \cite{Efficient-Distrib-Svc-Discovery-2014} \cite{IETF-Routing-WSN-2014}
 \cite{TinySDN-2014} \cite{Trickle-L2-2014}
 \cite{Visual-Sensor-Networks-2014} \cite{Key-Mgmt-2015}
@@ -336,7 +335,7 @@ projects
 %hardware platform)
 \item most of these publications are focused on higher layers of WSN
 network stacks, like routing protocols 
-\cite{Constrain-Routing-Trees-2014} \cite{Co-RPL-2014}
+\cite{Constrain-Routing-Trees-2014}
 \cite{IETF-Routing-WSN-2014} \cite{Trickle-L2-2014}
 or application-level projects
 \cite{DINAS-2014} \cite{Efficient-Distrib-Svc-Discovery-2014}
@@ -433,10 +432,10 @@ d'investissement d'avenir~\guillemotright}}
 \end{block}
 \end{column}
 \end{columns}
-\vspace{0.25cm}
+\vspace{0.3cm}
 \end{frame}
 
-\begin{frame}[allowframebreaks,t]
+\begin{frame}[t]
 \frametitle{References}
 \tiny
 \bibliographystyle{unsrt}
@@ -447,6 +446,7 @@ d'investissement d'avenir~\guillemotright}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                               80 COLONNES                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%% FIN DE LA PRÉSENTATION
 \end{document}
