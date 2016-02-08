@@ -10,7 +10,6 @@
 %%%                               80 COLONNES                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%% THÈME DE LA PRÉSENTATION
 \usetheme{JuanLesPins}  %% Warsaw
 
@@ -47,7 +46,6 @@
     \insertframenumber~/ 17%\inserttotalframenumber
 }
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                               80 COLONNES                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,18 +81,18 @@ $\rightarrow$ need of powerful and accurate simulation/emulation tools
 \item Cooja (from Contiki OS project)
 \end{itemize}
 \end{block}
-\begin{exampleblock}{This work focus on the latter framework: \nom{Cooja}}
+\begin{exampleblock}{This work focuses on the latter framework: \nom{Cooja}}
 $\rightarrow$ (one of) the most used WSN simulation/emulation tool
 \end{exampleblock}
 \end{frame}
 
 \begin{frame}
 \frametitle{Introduction II}
-\begin{block}{The present work focuses on the following contributions:}
+\begin{block}{Contributions of our work: we will focus on\ldots}
 \begin{enumerate}
-\item The ability---\emph{actually tested and used}---to use the Cooja
+\item the ability---\emph{actually tested and used}---to use the Cooja
 framework to simulate/emulate systems not related to Contiki OS
-\item The inaccuracies in time-related results we discovered while using
+\item the inaccuracies in time-related results we discovered while using
 Cooja\footnote{Note we always used the Cooja version provided with
 Contiki release 2.7} to perform our own simulations to test our own
 WSN-related projects
@@ -115,7 +113,7 @@ published in the WSN domain
 
 \vspace{0.25cm}
 \begin{block}{}
-The present work focuses on Cooja and the MSPSim emulator only
+\emph{The present work focuses on Cooja and the MSPSim emulator only}
 \end{block}
 \end{frame}
 
@@ -224,7 +222,7 @@ Zolertia Z1    & RIOT OS & 110 bytes & 181\% \\
 
 \begin{frame}
 \frametitle{Timing Inaccuracy Problem in MSPSim: Results I}
-\begin{block}{What did our tests show?}
+\begin{block}{What do our tests show?}
 \begin{itemize}
 \item the inaccuracy problem is mainly influenced by the emulated hardware
 platform
@@ -237,7 +235,7 @@ platform
 \item the used OS has much less influence on the problem: results tend
 to be more accurate on Contiki than on RIOT OS
 \item the size of transmitted packets doesn't seem to have any
-significative influence on this problem
+significative impact on this problem
 \end{itemize}
 \end{block}
 \end{frame}
@@ -246,7 +244,7 @@ significative influence on this problem
 \frametitle{Timing Inaccuracy Problem in MSPSim: Results II}
 \begin{center}
 \vspace{-0.4cm}
-\includegraphics[width=8cm]{Delays.png}
+\includegraphics[width=7.5cm]{Delays.png}
 \vspace{0.1cm}
 
 \tblcaption{\small Relative weight of TX buffer loading
@@ -282,7 +280,7 @@ Zolertia Z1    & RIOT OS & 110 bytes & 46\% \\
 
 \begin{frame}
 \frametitle{Timing Inaccuracy Problem in MSPSim: Results II}
-\begin{block}{What did our tests show \textit{(bis)}?}
+\begin{block}{What do our tests show \textit{(bis)}?}
 \emph{The TX buffer loading operation weight in the whole packet
 transmission time is anything but negligible:}
 
@@ -359,17 +357,18 @@ unreliable, and thus put their conclusions in jeopardy!}
 
 \begin{frame}
 \frametitle{Conclusions I}
-\begin{block}{Our contributions}
+\begin{block}{Our contributions:}
 \begin{enumerate}
-\item we showed that the Cooja framework is not limited to simulations
+\item we showed that \emph{the Cooja framework is not limited to simulations
 of systems running Contiki OS, but can run any program designed for the
-emulated architectures (especially MSP430, thanks to MSPSim)
-\item we showed that the MSPSim emulation---at least for the version
+emulated architectures} (especially MSP430, thanks to MSPSim)
+\item we showed that \emph{the MSPSim emulation---at least for the version
 provided with Contiki release 2.7---suffers from a serious timing inaccuracy
-issue; we described the extent of the problem, and provided serious clues
+issue;} we described the extent of the problem, and provided serious clues
 about its cause(s)
-\item we briefly enumerated a (non-exhaustive) list of recent publications,
-showing the magnitude of the negative impact this problem can cause
+\item we briefly enumerated a (non-exhaustive) \emph{list of recent
+publications, showing the magnitude of the negative impact}
+this problem can cause
 \end{enumerate}
 \end{block}
 \end{frame}
@@ -379,8 +378,8 @@ showing the magnitude of the negative impact this problem can cause
 \begin{alertblock}{In summary:}
 Until a fix is made and published to correct this issue in MSPSim,
 \emph{we think that all works based on Cooja/MSPSim simulations to evaluate
-WSN projects---especially for timing matters---should be checked (even
-partially) by tests on actual hardware}
+WSN projects for timing matters should be checked (even partially) by tests
+on actual hardware}
 \end{alertblock}
 \begin{exampleblock}{How to test the accuracy of your own works?}
 We provided the source of our test programs (for Contiki and RIOT OS)
@@ -391,7 +390,7 @@ on a public GitHub repository:
 
 \begin{frame}
 \frametitle{Conclusions III}
-\begin{exampleblock}{Strengths of Cooja/MSPSim}
+\begin{exampleblock}{Strengths of Cooja/MSPSim:}
 \begin{itemize}
 \item the many publications in the domain of WSNs, especially very recent
 ones, including Cooja/MSPSim simulations, is a testimony of the usefulness
@@ -408,12 +407,12 @@ software much more easily thanks to its emulation features}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                                 ANNEXES                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
 
 %%% ANNEXE : REMERCIEMENTS ET RÉFÉRENCES BIBLIOGRAPHIQUES
-
-\section{Appendix}
 
 \begin{frame}[b]
 \frametitle{Thanks for Your Attention}
@@ -435,13 +434,15 @@ d'investissement d'avenir~\guillemotright}}
 \vspace{0.3cm}
 \end{frame}
 
+
+\section{Appendix}
+
 \begin{frame}[t]
 \frametitle{References}
 \tiny
 \bibliographystyle{unsrt}
 \bibliography{TimingInacc}
 \end{frame}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                               80 COLONNES                                %%%
@@ -450,6 +451,5 @@ d'investissement d'avenir~\guillemotright}}
 
 %%% FIN DE LA PRÉSENTATION
 \end{document}
-
 
 
