@@ -43,7 +43,7 @@
     \usebeamerfont{footline}%
     \usebeamercolor[fg]{footline}%
     \hspace{1.5em}%
-    \insertframenumber~/ 17%\inserttotalframenumber
+    \insertframenumber~/ \inserttotalframenumber
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -288,8 +288,12 @@ This TX buffer loading operation amounts to about half of the total
 packet transmission delay under RIOT OS (much less on Contiki,
 where it represents 10\% to 13\%) \\
 $\rightarrow$ \textit{This is probably due to the way these OSes do manage
-the SPI bus that links the MCU to the radio transceiver on a mote
-(``fast mode'' for Contiki OS, ``safe mode'' for RIOT OS)}
+the SPI bus that links the MCU to the radio transceiver on a mote:
+\begin{itemize}
+\item ``fast mode'' (sending burst of bytes) for Contiki OS
+\item ``safe mode'' (checking every byte sent) for RIOT OS
+\end{itemize}
+}
 \end{block}
 \end{frame}
 
@@ -306,8 +310,8 @@ made with this framework cannot be used for timing evaluation purposes
 of WSN-based projects}
 \item since the hardware seems to be the main factor influencing this
 problem, we suppose its cause is---at least partially---linked to wrong
-timing calibrations for microcontrollers' emulation \\
-%{\small (Sky/TelosB microcontroller emulation being visibly much more
+timing calibrations for microcontrollers' emulation 
+%\\ {\small (Sky/TelosB microcontroller emulation being visibly much more
 %accurate than Zolertia Z1's)}
 \end{itemize}
 \end{alertblock}
@@ -451,5 +455,6 @@ d'investissement d'avenir~\guillemotright}}
 
 %%% FIN DE LA PRÉSENTATION
 \end{document}
+
 
 
